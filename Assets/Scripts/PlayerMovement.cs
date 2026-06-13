@@ -10,6 +10,8 @@ public class PlayerMovement : NetworkBehaviour
     private Vector2 movement;
     public Vector2 lastMoveDir = Vector2.down; // default facing direction
 
+    public static PlayerMovement LocalPlayer;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -67,5 +69,10 @@ public class PlayerMovement : NetworkBehaviour
             spriteRenderer.flipX = true;
         else if (lastMoveDir.x > 0.01f)
             spriteRenderer.flipX = false;
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        LocalPlayer = this;
     }
 }

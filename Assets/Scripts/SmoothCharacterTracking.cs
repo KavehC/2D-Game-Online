@@ -120,4 +120,10 @@ public class SmoothCharacterTracking : MonoBehaviour
         Gizmos.DrawLine(target.position, target.position + offset);
         Gizmos.DrawSphere(target.position + offset, 0.12f);
     }
+
+    public Transform GetTarget()
+    {
+        return target;
+    }
 }
+

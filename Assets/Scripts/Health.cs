@@ -3,6 +3,7 @@ using Mirror;
 
 public class Health : NetworkBehaviour
 {
+    [SyncVar]
     public int hp = 50;
 
     public void TakeDamage(int dmg)
@@ -13,6 +14,7 @@ public class Health : NetworkBehaviour
         Debug.Log(name + " took damage: " + dmg);
 
         if (hp <= 0)
-            Destroy(gameObject);
+            NetworkServer.Destroy(gameObject);
+
     }
 }
